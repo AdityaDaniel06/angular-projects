@@ -5,11 +5,11 @@ export class AuthService {
     const promise = new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve(this.loggedIn);
-      } , 900);
+      } , 1000);
     });
     return promise;
   }
-
+// to fake a login
   login() {
     this.loggedIn = true;
   }

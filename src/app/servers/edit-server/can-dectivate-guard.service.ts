@@ -9,13 +9,13 @@ export interface CanComponentDeactivate {
   canDeactivate: () => Observable<boolean> | Promise<boolean> | boolean;
 }
 
-export class canDeactivateGuard
+export class CanDeactivateGuard
   implements CanDeactivate<CanComponentDeactivate>
 {
   canDeactivate(
     component: CanComponentDeactivate,
-    curreentRouter: ActivatedRouteSnapshot,
-    currentstate: RouterStateSnapshot,
+    currentRouter: ActivatedRouteSnapshot,
+    currentState: RouterStateSnapshot,
     nextState?: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
     return component.canDeactivate();

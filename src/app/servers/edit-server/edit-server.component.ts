@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ServersService } from '../servers.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { CanComponentDeactivate } from './can-dectivate-guard.service';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-edit-server',
@@ -23,9 +23,7 @@ export class EditServerComponent implements OnInit, CanComponentDeactivate {
   ) {}
 
   ngOnInit() {
-    this.server = this.serversService.getServer(1);
-    this.serverName = this.server.name;
-    this.serverStatus = this.server.status;
+    
 
     // retriving queryprams data from URL
     // console.log(this.route.snapshot.queryParams);
@@ -33,9 +31,14 @@ export class EditServerComponent implements OnInit, CanComponentDeactivate {
 
     // retriving query params from URl
     this.route.queryParams.subscribe((queryParams: Params) => {
-      this.allowEdit = queryParams['allowedit'] === '1' ? true : false;
+      this.allowEdit = queryParams['allowEdit'] === '1' ? true : false;
     });
     this.route.fragment.subscribe();
+    const id = this.route.snapshot.params['id'];
+    this.server = this.serversService.getServer(id);
+    // subscribe route params to update the id if params change
+    this.serverName = this.server.name;
+    this.serverStatus = this.server.status;
   }
 
   onUpdateServer() {
@@ -47,6 +50,7 @@ export class EditServerComponent implements OnInit, CanComponentDeactivate {
     this.router.navigate(['../'], { relativeTo: this.route });
   }
 
+  // logic to check we are allowed to leave the page 
   canDeactivate(): boolean | Observable<boolean> | Promise<boolean> {
     if (!this.allowEdit) return true;
     if (
@@ -54,7 +58,7 @@ export class EditServerComponent implements OnInit, CanComponentDeactivate {
         this.serverStatus !== this.server.status) &&
       !this.changesSaved
     ) {
-      return confirm('Do you want to discard the changes');
+      return confirm('Do you want to discard the changes?');
     } else {
       return true;
     }
