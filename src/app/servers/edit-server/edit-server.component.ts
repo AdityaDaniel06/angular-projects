@@ -23,8 +23,6 @@ export class EditServerComponent implements OnInit, CanComponentDeactivate {
   ) {}
 
   ngOnInit() {
-    
-
     // retriving queryprams data from URL
     // console.log(this.route.snapshot.queryParams);
     // console.log(this.route.snapshot.fragment);
@@ -50,7 +48,7 @@ export class EditServerComponent implements OnInit, CanComponentDeactivate {
     this.router.navigate(['../'], { relativeTo: this.route });
   }
 
-  // logic to check we are allowed to leave the page 
+  // logic to check we are allowed to leave the page
   canDeactivate(): boolean | Observable<boolean> | Promise<boolean> {
     if (!this.allowEdit) return true;
     if (
