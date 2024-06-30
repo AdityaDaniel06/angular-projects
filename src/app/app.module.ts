@@ -4,10 +4,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
+import { MyTdFormComponent } from './my-td-form/my-td-form.component';
+import { MyRFormComponent } from './my-r-form/my-r-form.component';
+import { ReactiveAssignmentComponent } from './reactive-assignment/reactive-assignment.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MyTdFormComponent,
+    MyRFormComponent,
+    ReactiveAssignmentComponent
   ],
   imports: [
     BrowserModule,
