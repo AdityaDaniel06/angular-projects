@@ -7,13 +7,17 @@ import { AppComponent } from './app.component';
 import { MyTdFormComponent } from './my-td-form/my-td-form.component';
 import { MyRFormComponent } from './my-r-form/my-r-form.component';
 import { ReactiveAssignmentComponent } from './reactive-assignment/reactive-assignment.component';
+import { TemperatureComponent } from './challenges/temperature/temperature.component';
+import { TodoListComponent } from './challenges/todo-list/todo-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MyTdFormComponent,
     MyRFormComponent,
-    ReactiveAssignmentComponent
+    ReactiveAssignmentComponent,
+    TemperatureComponent,
+    TodoListComponent
   ],
   imports: [
     BrowserModule,

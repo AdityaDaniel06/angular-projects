@@ -1,0 +1,33 @@
+.todo-app {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.filters {
+  margin: 20px 0;
+}
+
+.filters button {
+  margin: 0 5px;
+}
+
+.filters button.active {
+  font-weight: bold;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+li .completed {
+  text-decoration: line-through;
+}
